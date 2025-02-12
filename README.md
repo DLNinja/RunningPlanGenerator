@@ -10,15 +10,14 @@ A web application that generates personalized running training plans using the *
 ✅ **Personalized Training Plans**: Generate structured running plans based on input goals.  
 ✅ **Z3 Solver Optimization**: Uses constraint solving to distribute weekly mileage effectively.  
 ✅ **Plan Management**: View, edit, and delete training plans.  
-✅ **Responsive UI**: Styled with **Bootstrap** for a clean user experience.  
 
 ---
 
 ## 🏗️ Technologies Used  
 
 - **Backend**: Django, Python  
-- **Frontend**: HTML, CSS (Bootstrap), JavaScript  
-- **Database**: SQLite (default), but can be switched to PostgreSQL/MySQL  
+- **Frontend**: HTML, CSS, JavaScript  
+- **Database**: SQLite  
 - **Optimization Engine**: Z3 SMT Solver  
 
 ---
