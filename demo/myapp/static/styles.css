@@ -1,0 +1,189 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5EFE7;
+    margin: 0;
+    padding: 0;
+    color: #213555;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #213555;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    border: 1px solid #D8C4B6;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #D8C4B6;
+}
+
+th {
+    background-color: #3E5879;
+    color: white;
+}
+
+button {
+    display: inline-block;
+    background-color: #3E5879; /* Matching button color with table headers */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #213555; /* Darker hover effect for buttons */
+}
+
+nav {
+    background-color: #D8C4B6; /* Light brown background for navigation */
+    padding: 10px;
+    border-bottom: 1px solid #213555; /* Dark border to define separation */
+}
+
+.navbar {
+    background-color: #F5EFE7; /* Light background for the navbar */
+    padding: 15px;
+    border-bottom: 2px solid #213555; /* Dark border at the bottom */
+}
+
+.navbar-brand {
+    color: #213555; /* Dark blue for the brand */
+    font-weight: bold;
+}
+
+.navbar-brand:hover {
+    color: #3E5879; /* Hover effect for brand */
+}
+
+.navbar-nav {
+    display: flex; /* Flexbox layout to align nav items side by side */
+    align-items: center; /* Center items vertically */
+    margin-left: auto; /* Push nav items to the right */
+}
+
+.nav-item {
+    margin-left: 15px; /* Space between items */
+}
+
+.nav-item p {
+    margin: 0; /* Remove margin for welcome message */
+    color: #213555; /* Dark blue text color */
+}
+
+.nav-link {
+    color: #213555; /* Dark color for links */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #3E5879; /* Darker blue when hovered */
+    text-decoration: underline;
+}
+
+.navbar-toggler {
+    border-color: #213555; /* Dark border for the mobile menu button */
+}
+
+.navbar-toggler-icon {
+    background-color: #213555; /* Dark color for the toggle icon */
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #213555; /* Dark color for navigation links */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form button {
+    display: inline-block;
+    background-color: #3E5879; /* Blue-gray button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #213555; /* Darker blue on hover */
+}
+
+p {
+    text-align: center;
+    margin-top: 20px; /* Spacing between the form and paragraph */
+}
+
+a {
+    color: #3E5879; /* Button color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.restriction-info {
+    max-width: 900px; /* Same max-width as the form */
+    margin: 20px auto;
+    padding: 20px;
+    background: #F5EFE7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.restriction-info h4 {
+    text-align: center;
+    color: #213555; /* Using one of your color codes */
+}
+
+.restriction-info ul {
+    padding-left: 20px;
+}
+
+.restriction-info li {
+    margin-bottom: 8px;
+    color: #3E5879; /* Using another color from your palette */
+}

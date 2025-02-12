@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Training Plan Table{% endblock %}
+
+{% block content %}
+
+    <h1 id="plan-title">{{ training_plan.title }}</h1>
+    <button onclick="changeTitle()">Change Title</button>
+    <button id="delete-button" class="btn btn-danger">Delete Training Plan</button>
+
+    <script>
+        function changeTitle() {
+            const newTitle = prompt("Enter a new title for the training plan:");
+            if (newTitle) {
+                fetch("{% url 'update_plan_title' training_plan.id %}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "{{ csrf_token }}",
+                    },
+                    body: JSON.stringify({ title: newTitle }),
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error("Failed to update title");
+                        }
+                    })
+                    .then(data => {
+                        document.getElementById("plan-title").innerText = data.new_title;
+                    })
+                    .catch(error => {
+                        alert("Error updating title: " + error.message);
+                    });
+            }
+        }
+
+        // Delete button functionality
+        document.getElementById("delete-button").addEventListener("click", function() {
+            const trainingPlanId = {{ training_plan.id }};
+            const csrfToken = '{{ csrf_token }}';
+
+            if (confirm("Are you sure you want to delete this training plan?")) {
+                fetch(`/delete-training-plan/${trainingPlanId}/`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": csrfToken,
+                    },
+                    body: JSON.stringify({}),
+                })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = '/';
+                    }
+                })
+                .catch(error => {
+                    console.error("Error deleting training plan:", error);
+                    alert("An error occurred while deleting the training plan.");
+                });
+            }
+        });
+    </script>
+    <p>Goal Distance: {{ training_plan.goal_distance }} km</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Week</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+                <th>Total Distance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for week in weekly_mileages %}
+            <tr>
+                <td>Week {{ week.week_index }}</td>
+                {% for day in week.days %}
+                <td>{% if day != 0 %}{{ day }}km{% endif %}</td>
+                {% endfor %}
+                <td>{{ week.total }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

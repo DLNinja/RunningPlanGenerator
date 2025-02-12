@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Training Plan Form{% endblock %}
+
+{% block content %}
+    <h1>Training Plan Generator</h1>
+
+    {% if error %}
+        <div style="color: red; font-weight: bold; margin-bottom: 10px; text-align: center;">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="goal_distance">Goal Distance (km):</label>
+        <input type="number" id="goal_distance" name="goal_distance" required><br><br>
+
+        <label for="current_longest_run">Current Longest Run (km):</label>
+        <input type="number" id="current_longest_run" name="current_longest_run" required><br><br>
+
+        <label for="num_weeks">Number of Weeks:</label>
+        <input type="number" id="num_weeks" name="num_weeks" required><br><br>
+
+        <h3>Select Non-Running Days:</h3>
+        <label><input type="checkbox" name="non_running_days" value="0"> Monday</label><br>
+        <label><input type="checkbox" name="non_running_days" value="1"> Tuesday</label><br>
+        <label><input type="checkbox" name="non_running_days" value="2"> Wednesday</label><br>
+        <label><input type="checkbox" name="non_running_days" value="3"> Thursday</label><br>
+        <label><input type="checkbox" name="non_running_days" value="4"> Friday</label><br>
+        <label><input type="checkbox" name="non_running_days" value="5"> Saturday</label><br>
+        <label><input type="checkbox" name="non_running_days" value="6"> Sunday</label><br><br>
+
+        <label for="long_run_day">Long Run Day:</label>
+        <select id="long_run_day" name="long_run_day" required>
+            <option value="0">Monday</option>
+            <option value="1">Tuesday</option>
+            <option value="2">Wednesday</option>
+            <option value="3">Thursday</option>
+            <option value="4">Friday</option>
+            <option value="5">Saturday</option>
+            <option value="6">Sunday</option>
+        </select><br><br>
+
+        <button type="submit">Generate Plan</button>
+    </form>
+
+    <div class="restriction-info">
+        <h4>Training Plan Restrictions</h4>
+        <ul>
+            <li>Distances should not be less than 0 km.</li>
+            <li>The number of weeks should be at least 4.</li>
+            <li>The number of non-running days should be at most 3-4.</li>
+            <li>The long run day should not coincide with a non-running day.</li>
+        </ul>
+    </div>
+{% endblock %}

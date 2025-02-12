@@ -1,0 +1,22 @@
+{% extends "base.html" %} <!-- Extending the base template -->
+
+{% block title %}All Training Plans{% endblock %} <!-- Set the page title -->
+
+{% block content %}
+    <h1>All Training Plans</h1>
+
+    {% if training_plans %}
+        <ul>
+        {% for plan in training_plans %}
+            <li>
+                <form action="{% url 'training_plan_result' plan.id %}" method="get">
+                    <button type="submit">{{ plan.title }}</button>
+                </form>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No training plans available.</p>
+    {% endif %}
+
+{% endblock %}
